@@ -1,0 +1,11 @@
+.item {
+  border-bottom: 1px solid #ccc;
+  margin: 50px 0;
+}
+
+.item img {
+  display: block;
+  margin: 36px auto;
+  max-width: 400px;
+  width: 100%;
+}
