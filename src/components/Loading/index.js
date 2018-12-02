@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import loading from "./loading.gif";
 
 class Loading extends Component {
   render() {
+    const url =
+      "https://res.cloudinary.com/tpdthau/image/upload/v1543708757/loading_wugmhn.gif";
     const style = {
       display: "flex"
     };
     return (
       <div style={style}>
-        <img style={{ margin: "auto" }} src={loading} alt="loading" />
+        <img style={{ margin: "auto" }} src={url} alt="loading" />
       </div>
     );
   }
