@@ -20,22 +20,34 @@ const NewItem = ({
       </Link>
       <form onSubmit={submit}>
         <h2>Create new item</h2>
-        <div className="input-group">
+        <div className="form-group">
           <label>Title:</label>
-          <input type="text" value={title} onChange={changeEmail} required />
+          <input
+            className="form-control"
+            type="text"
+            value={title}
+            onChange={changeEmail}
+            required
+          />
         </div>
-        <div className="input-group">
+        <div className="form-group">
           <label>Full Name:</label>
           <input
+            className="form-control"
             type="text"
             value={fullName}
             onChange={changeFullName}
             required
           />
         </div>
-        <div className="input-group">
+        <div className="form-group">
           <label>Image:</label>
-          <input type="file" onChange={changeImage} required />
+          <input
+            className="form-control"
+            type="file"
+            onChange={changeImage}
+            required
+          />
         </div>
         <div className="image-preview">
           <img alt="" src={image ? URL.createObjectURL(image) : ""} />
@@ -43,7 +55,9 @@ const NewItem = ({
         {loading ? (
           <button>Loading ...</button>
         ) : (
-          <button type="submit">Create</button>
+          <button className="btn btn-primary" type="submit">
+            Create
+          </button>
         )}
       </form>
     </div>

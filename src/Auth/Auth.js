@@ -29,6 +29,7 @@ export default class Auth {
         history.replace("/");
         this.auth0.client.userInfo(authResult.accessToken, (err, user) => {
           this.setUser(user);
+          console.log(user);
         });
       } else if (err) {
         history.replace("/");

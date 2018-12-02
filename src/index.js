@@ -7,6 +7,7 @@ import Auth from "./Auth/Auth";
 import "./styles.css";
 
 import Home from "./components/Home";
+import MyWord from "./components/MyWord";
 import Nav from "./components/Nav";
 import NewItem from "./components/NewItem";
 import Callback from "./components/Callback";
@@ -31,6 +32,7 @@ function App() {
             render={props => <Home auth={auth} {...props} />}
           />
           <Route path="/create-item" component={NewItem} />
+          <Route path="/my-words" component={MyWord} />
           <Route
             path="/callback"
             render={props => {

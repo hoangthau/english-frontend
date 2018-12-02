@@ -1,14 +1,6 @@
 .new-item {
   padding: 12px;
 }
-.new-item label {
-  display: block;
-}
-
-.input-group {
-  margin: 12px 0;
-}
-
 .image-preview {
-  width: 700px;
+  width: 500px;
 }

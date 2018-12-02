@@ -23,7 +23,10 @@ const Nav = ({ auth }) => {
       </span>
       <div>
         {isAuthenticated() ? (
-          <Link to="/create-item">Create Item</Link>
+          <React.Fragment>
+            <Link to="/create-item">Create Item</Link>
+            <Link to="/my-words">My Words</Link>
+          </React.Fragment>
         ) : (
           <a onClick={login}>Log In</a>
         )}

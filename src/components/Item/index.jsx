@@ -1,12 +1,11 @@
 import React from "react";
 import moment from "moment";
-
 import "./styles.css";
 
 const getDuration = (day, hour, min) => {
   return `${day ? day + "d" : hour ? hour + "h" : min + "m"}`;
 };
-const Item = ({ fullName, date, title, imageUrl }) => {
+const Item = ({ fullName, date, title, imageUrl, toggleModalItem }) => {
   const time = new Date() - new Date(date);
   const days = moment.duration(time).days();
   const hours = moment.duration(time).hours();
@@ -19,6 +18,15 @@ const Item = ({ fullName, date, title, imageUrl }) => {
         🐵{fullName} -
       </span>
       <span className="secondary-text">{duration}</span>
+      <a
+        className="float-right"
+        onClick={toggleModalItem}
+        title="Add to my words"
+      >
+        <span role="img" aria-label="item-icon">
+          ❤️
+        </span>
+      </a>
       <h1>{title} </h1>
       <img alt="item-img" src={imageUrl} />
     </div>
