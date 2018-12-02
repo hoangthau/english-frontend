@@ -3,13 +3,14 @@ import React from "react";
 import ItemList from "../ItemList";
 import Loading from "../Loading";
 import ItemModal from "../ItemModal";
+import { createWord } from "../../resources/word";
 
 class Home extends React.Component {
   state = {
     items: [],
     isOpenModal: false,
     newWord: {
-      voca: "",
+      vocabulary: "",
       pronunciation: "",
       meanings: "",
       similarSound: "",
@@ -26,12 +27,26 @@ class Home extends React.Component {
   };
 
   toggleModalItem = item => {
-    this.setState({ isOpenModal: !this.state.isOpenModal });
-    console.log(item);
+    let currentWord = { ...this.state.newWord };
+    currentWord.imageUrl = item.imageUrl;
+    this.setState({
+      isOpenModal: !this.state.isOpenModal,
+      newWord: currentWord
+    });
   };
 
-  createWord = e => {
+  submitWord = e => {
     e.preventDefault();
+    createWord(this.state.newWord).then(() => {
+      this.setState({ isOpenModal: false });
+    });
+  };
+
+  changeInput = e => {
+    const { value, name } = e.target;
+    let currentWord = { ...this.state.newWord };
+    currentWord[name] = value;
+    this.setState({ newWord: currentWord });
   };
 
   render() {
@@ -46,7 +61,8 @@ class Home extends React.Component {
         <ItemModal
           isOpen={isOpenModal}
           toggleModal={this.toggleModalItem}
-          submit={this.createWord}
+          submit={this.submitWord}
+          changeInput={this.changeInput}
         />
       </React.Fragment>
     );

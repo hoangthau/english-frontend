@@ -1,41 +1,55 @@
 import React from "react";
 import Modal from "react-modal";
 
-const ItemModal = ({ isOpen, createWord, toggleModal }) => (
+Modal.setAppElement("#root");
+
+const ItemModal = ({ isOpen, submit, toggleModal, changeInput }) => (
   <Modal isOpen={isOpen}>
-    <form className="new-word" onSubmit={createWord}>
-      <div class="form-group">
+    <form className="new-word" onSubmit={submit}>
+      <div className="form-group">
         <label>Vocabulary</label>
-        <input type="text" class="form-control" placeholder="Enter your word" />
+        <input
+          name="vocabulary"
+          type="text"
+          className="form-control"
+          onChange={changeInput}
+          placeholder="Enter your word"
+        />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label>Pronunciation</label>
         <input
+          name="pronunciation"
           type="text"
-          class="form-control"
+          className="form-control"
+          onChange={changeInput}
           placeholder="Enter word's pronunciation"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label>Meanings</label>
         <input
+          name="meanings"
           type="text"
-          class="form-control"
+          className="form-control"
+          onChange={changeInput}
           placeholder="Enter word's meanings"
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label>Similar Sound</label>
         <input
+          name="similarSound"
           type="text"
-          class="form-control"
+          className="form-control"
+          onChange={changeInput}
           placeholder="Enter word's similar sound"
         />
       </div>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Submit
       </button>
-      <button onClick={toggleModal} type="button" class="btn btn-default">
+      <button onClick={toggleModal} type="button" className="btn btn-default">
         Cancel
       </button>
     </form>
