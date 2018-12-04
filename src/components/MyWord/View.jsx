@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./styles.css";
+
 const View = ({ words }) => (
   <div>
     <h2>My Words</h2>
@@ -21,7 +23,9 @@ const View = ({ words }) => (
               <td>{item.pronunciation}</td>
               <td>{item.meanings}</td>
               <td>{item.similarSound}</td>
-              <td>{item.imageUrl}</td>
+              <td>
+                <img className="img-voca" alt="img-voca" src={item.imageUrl} />
+              </td>
             </tr>
           );
         })}
