@@ -3,9 +3,19 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+const customStyles = {
+  content: {
+    left: "20%",
+    right: "20%",
+    bottom: "auto"
+  }
+};
+
 const ItemModal = ({ isOpen, submit, toggleModal, changeInput }) => (
-  <Modal isOpen={isOpen}>
+  <Modal isOpen={isOpen} style={customStyles}>
     <form className="new-word" onSubmit={submit}>
+      <h2>Add your word</h2>
+      <hr />
       <div className="form-group">
         <label>Vocabulary</label>
         <input
