@@ -8,3 +8,10 @@ export const createWord = data => {
     body: JSON.stringify(data)
   });
 };
+
+export const deleteWord = id => {
+  const url = "https://fun-english.herokuapp.com/word/" + id;
+  return fetch(url, {
+    method: "DELETE"
+  });
+};
