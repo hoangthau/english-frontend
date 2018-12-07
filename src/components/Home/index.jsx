@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import ItemList from "../ItemList";
 import Loading from "../Loading";
@@ -25,8 +26,8 @@ class Home extends React.Component {
   };
 
   getItems = async () => {
-    const data = await fetch("https://fun-english.herokuapp.com/items");
-    const items = data.json();
+    const response = await axios.get("https://fun-english.herokuapp.com/items");
+    const items = response.data;
     return items;
   };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import View from "./View.jsx";
+import axios from "axios";
 
 import { deleteWord } from "../../resources/word";
 
@@ -27,12 +28,10 @@ class MyWord extends React.Component {
   };
 
   getWords = () => {
-    fetch("https://fun-english.herokuapp.com/words")
-      .then(res => res.json())
-      .then(res => {
-        const words = res.sort((a, b) => b.date - a.date);
-        this.setState({ words });
-      });
+    axios.get("https://fun-english.herokuapp.com/words").then(res => {
+      const words = res.data.sort((a, b) => b.date - a.date);
+      this.setState({ words });
+    });
   };
 
   render() {

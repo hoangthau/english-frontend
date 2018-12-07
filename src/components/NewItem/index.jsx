@@ -20,7 +20,6 @@ class NewItem extends React.Component {
   };
   changeImage = event => {
     this.setState({ image: event.target.files[0] });
-    console.log(event.target.files[0]);
   };
   submit = event => {
     event.preventDefault();
@@ -28,12 +27,11 @@ class NewItem extends React.Component {
     if (image) {
       this.setState({ loading: true });
       upload(image)
-        .then(res => res.json())
         .then(res => {
           const data = {
             title,
             fullName,
-            imageUrl: res.url
+            imageUrl: res.data.url
           };
           return createItem(data);
         })
