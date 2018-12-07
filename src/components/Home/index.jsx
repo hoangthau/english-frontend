@@ -18,12 +18,16 @@ class Home extends React.Component {
     }
   };
   componentDidMount = () => {
-    fetch("https://fun-english.herokuapp.com/items")
-      .then(res => res.json())
-      .then(res => {
-        const items = res.sort((a, b) => b.date - a.date);
-        this.setState({ items });
-      });
+    this.getItems().then(res => {
+      const items = res.sort((a, b) => b.date - a.date);
+      this.setState({ items });
+    });
+  };
+
+  getItems = async () => {
+    const data = await fetch("https://fun-english.herokuapp.com/items");
+    const items = data.json();
+    return items;
   };
 
   toggleModalItem = item => {
