@@ -11,7 +11,7 @@ const View = ({
   isOpenModal,
   closeModal
 }) => (
-  <div>
+  <div className="my-words">
     <h2>My Words</h2>
     <table className="table">
       <thead>

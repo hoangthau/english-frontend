@@ -2,3 +2,11 @@
   width: 100px;
   cursor: pointer;
 }
+
+.my-words {
+  padding: 12px 24px;
+}
+
+.my-words h2 {
+  margin-bottom: 48px;
+}
