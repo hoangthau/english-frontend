@@ -57,7 +57,6 @@ class Home extends React.Component {
     const { items, isOpenModal } = this.state;
     return (
       <React.Fragment>
-        aa
         {items.length ? (
           <ItemList items={items} toggleModalItem={this.toggleModalItem} />
         ) : (
