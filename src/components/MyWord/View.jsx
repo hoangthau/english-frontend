@@ -13,7 +13,7 @@ const View = ({
 }) => (
   <div className="my-words">
     <h2>My Words</h2>
-    <table className="table">
+    <table className="table table-responsive">
       <thead>
         <tr>
           <th>Words</th>
@@ -41,7 +41,12 @@ const View = ({
                 />
               </td>
               <td>
-                <button onClick={e => deleteWord(item._id)}>Delete</button>
+                <button
+                  className="btn btn-default"
+                  onClick={e => deleteWord(item._id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );

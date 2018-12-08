@@ -29,6 +29,13 @@ const Item = ({ fullName, date, title, imageUrl, toggleModalItem }) => {
       </a>
       <h1>{title} </h1>
       <img alt="item-img" src={imageUrl} />
+      <span
+        className="secondary-text icon-md"
+        role="img"
+        aria-label="item-icon"
+      >
+        👏
+      </span>
     </div>
   );
 };

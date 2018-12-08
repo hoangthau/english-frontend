@@ -12,6 +12,14 @@ class NewItem extends React.Component {
     loading: false
   };
 
+  resetState = () => {
+    this.setState({
+      title: "",
+      fullName: "Thau Nguyen",
+      image: null,
+      loading: false
+    });
+  };
   changeEmail = event => {
     this.setState({ title: event.target.value });
   };
@@ -35,7 +43,7 @@ class NewItem extends React.Component {
           };
           return createItem(data);
         })
-        .then(res => this.setState({ loading: false }));
+        .then(res => this.resetState());
     }
   };
 

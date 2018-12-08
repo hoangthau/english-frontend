@@ -10,3 +10,9 @@
 .my-words h2 {
   margin-bottom: 48px;
 }
+
+@media (min-width: 768px) {
+  .table-responsive {
+    display: table;
+  }
+}

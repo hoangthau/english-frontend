@@ -12,7 +12,10 @@ class MyWord extends React.Component {
   };
 
   deleteWord = id => {
-    deleteWord(id).then(() => this.getWords());
+    const result = window.confirm("Do you want to delete this word?");
+    if (result) {
+      deleteWord(id).then(() => this.getWords());
+    }
   };
 
   componentDidMount() {

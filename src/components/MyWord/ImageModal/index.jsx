@@ -8,11 +8,14 @@ const ImageModal = ({ isOpenModal, closeModal, imageUrl }) => {
   return (
     <Modal isOpen={isOpenModal}>
       <div>
-        <button className="float-right" onClick={closeModal}>
+        <button className="btn btn-default float-right" onClick={closeModal}>
           Close
         </button>
       </div>
-      <img className="modal-img-word" alt="modal-img" src={imageUrl} />
+      <div
+        className="modal-img-word"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      />
     </Modal>
   );
 };
