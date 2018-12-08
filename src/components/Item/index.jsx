@@ -5,7 +5,15 @@ import "./styles.css";
 const getDuration = (day, hour, min) => {
   return `${day ? day + "d" : hour ? hour + "h" : min + "m"}`;
 };
-const Item = ({ fullName, date, title, imageUrl, toggleModalItem }) => {
+const Item = ({
+  fullName,
+  date,
+  title,
+  imageUrl,
+  toggleModalItem,
+  incrementClaps,
+  claps
+}) => {
   const time = new Date() - new Date(date);
   const days = moment.duration(time).days();
   const hours = moment.duration(time).hours();
@@ -30,11 +38,12 @@ const Item = ({ fullName, date, title, imageUrl, toggleModalItem }) => {
       <h1>{title} </h1>
       <img alt="item-img" src={imageUrl} />
       <span
+        onClick={incrementClaps}
         className="secondary-text icon-md"
         role="img"
         aria-label="item-icon"
       >
-        👏
+        👏 {claps}
       </span>
     </div>
   );

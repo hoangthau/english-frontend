@@ -5,6 +5,7 @@ import ItemList from "../ItemList";
 import Loading from "../Loading";
 import ItemModal from "../ItemModal";
 import { createWord } from "../../resources/word";
+import { incrementClaps } from "../../resources/item";
 
 class Home extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class Home extends React.Component {
   componentDidMount = () => {
     this.getItems().then(res => {
       const items = res.sort((a, b) => b.date - a.date);
+      console.log(items);
       this.setState({ items });
     });
   };
@@ -54,12 +56,33 @@ class Home extends React.Component {
     this.setState({ newWord: currentWord });
   };
 
+  updateClapsById = (id, claps) => {
+    const { items } = this.state;
+    const index = items.findIndex(item => item._id === id);
+    let item = items[index];
+    item.claps = claps;
+    this.setState({ items });
+  };
+
+  incrementClaps = item => {
+    const claps = item.claps || 0;
+    const data = {
+      claps: claps + 1
+    };
+    this.updateClapsById(item._id, data.claps);
+    incrementClaps(data, item._id);
+  };
+
   render() {
     const { items, isOpenModal } = this.state;
     return (
       <React.Fragment>
         {items.length ? (
-          <ItemList items={items} toggleModalItem={this.toggleModalItem} />
+          <ItemList
+            items={items}
+            incrementClaps={this.incrementClaps}
+            toggleModalItem={this.toggleModalItem}
+          />
         ) : (
           <Loading />
         )}
