@@ -31,7 +31,9 @@ class MyWord extends React.Component {
   };
 
   getWords = () => {
-    axios.get("https://fun-english.herokuapp.com/words").then(res => {
+    const username = localStorage.getItem("username");
+    const url = "https://fun-english.herokuapp.com/words?username=" + username;
+    axios.get(url).then(res => {
       const words = res.data.sort((a, b) => b.date - a.date);
       this.setState({ words });
     });

@@ -6,7 +6,11 @@ import "./styles.css";
 Modal.setAppElement("#root");
 const ImageModal = ({ isOpenModal, closeModal, imageUrl }) => {
   return (
-    <Modal isOpen={isOpenModal}>
+    <Modal
+      isOpen={isOpenModal}
+      onRequestClose={closeModal}
+      shouldCloseOnOverlayClick={true}
+    >
       <div>
         <button className="btn btn-default float-right" onClick={closeModal}>
           Close

@@ -16,13 +16,13 @@ class Home extends React.Component {
       pronunciation: "",
       meanings: "",
       similarSound: "",
-      imageUrl: ""
+      imageUrl: "",
+      username: ""
     }
   };
   componentDidMount = () => {
     this.getItems().then(res => {
       const items = res.sort((a, b) => b.date - a.date);
-      console.log(items);
       this.setState({ items });
     });
   };
@@ -51,8 +51,10 @@ class Home extends React.Component {
 
   changeInput = e => {
     const { value, name } = e.target;
+    const username = localStorage.getItem("username");
     let currentWord = { ...this.state.newWord };
     currentWord[name] = value;
+    currentWord[username] = username;
     this.setState({ newWord: currentWord });
   };
 
@@ -87,6 +89,7 @@ class Home extends React.Component {
           <Loading />
         )}
         <ItemModal
+          auth={this.props.auth}
           isOpen={isOpenModal}
           toggleModal={this.toggleModalItem}
           submit={this.submitWord}
