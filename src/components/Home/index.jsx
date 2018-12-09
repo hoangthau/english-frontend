@@ -44,6 +44,7 @@ class Home extends React.Component {
 
   submitWord = e => {
     e.preventDefault();
+    console.log(this.state.newWord);
     createWord(this.state.newWord).then(() => {
       this.setState({ isOpenModal: false });
     });
@@ -54,7 +55,7 @@ class Home extends React.Component {
     const username = localStorage.getItem("username");
     let currentWord = { ...this.state.newWord };
     currentWord[name] = value;
-    currentWord[username] = username;
+    currentWord["username"] = username;
     this.setState({ newWord: currentWord });
   };
 
