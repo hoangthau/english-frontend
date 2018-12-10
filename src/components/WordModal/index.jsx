@@ -5,7 +5,7 @@ import "./styles.css";
 
 Modal.setAppElement("#root");
 
-const ItemModal = ({ isOpen, submit, toggleModal, changeInput, auth }) => {
+const WordModal = ({ isOpen, submit, toggleModal, changeInput, auth }) => {
   const { isAuthenticated } = auth;
   return (
     <Modal
@@ -76,4 +76,4 @@ const ItemModal = ({ isOpen, submit, toggleModal, changeInput, auth }) => {
   );
 };
 
-export default ItemModal;
+export default WordModal;

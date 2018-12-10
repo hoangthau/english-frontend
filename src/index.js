@@ -40,8 +40,6 @@ function App() {
             exact
             render={props => <Home auth={auth} {...props} />}
           />
-          <Route path="/create-item" component={NewItem} />
-          <Route path="/my-words" component={MyWord} />
           <Route
             path="/callback"
             render={props => {
@@ -49,6 +47,8 @@ function App() {
               return <Callback {...props} />;
             }}
           />
+          <Route path="/create-item" component={NewItem} />
+          <Route path="/my-words" component={MyWord} />
         </div>
       </Router>
     </div>
