@@ -1,10 +1,19 @@
-import React from "react";
-import ItemList from "../ItemList";
+import { connect } from "react-redux";
+import Home from "./Container.jsx";
 
-class Home extends React.Component {
-  render() {
-    return <ItemList auth={this.props.auth} />;
-  }
-}
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  setUsername: username =>
+    dispatch({
+      type: "SET_USERNAME",
+      payload: username
+    })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

@@ -1,7 +1,7 @@
 const user = (state = "", action) => {
   switch (action.type) {
     case "SET_USERNAME":
-      return action.username;
+      return action.payload;
     default:
       return state;
   }
