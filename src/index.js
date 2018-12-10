@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import { Router, Route } from "react-router-dom";
 import ReactGA from "react-ga";
 
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./reducers";
+
 import history from "./history";
 import Auth from "./Auth/Auth";
 
@@ -28,6 +32,11 @@ const initializeReactGA = () => {
 };
 
 initializeReactGA();
+
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   return (
@@ -56,4 +65,9 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
