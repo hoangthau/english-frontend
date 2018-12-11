@@ -12,11 +12,12 @@ import Auth from "./Auth/Auth";
 
 import "./styles.css";
 
-import Home from "./components/Home";
-import MyWord from "./components/MyWord";
+import Home from "./pages/Home";
+import MyWord from "./pages/MyWord";
+import NewItem from "./pages/NewItem";
+import Callback from "./pages/Callback";
+
 import Nav from "./components/Nav";
-import NewItem from "./components/NewItem";
-import Callback from "./components/Callback";
 
 const auth = new Auth();
 
@@ -33,10 +34,7 @@ const initializeReactGA = () => {
 
 initializeReactGA();
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(rootReducer);
 
 function App() {
   return (
