@@ -8,6 +8,7 @@ class Home extends React.Component {
       this.props.setUsername(username);
     }
   }
+
   render() {
     return <View auth={this.props.auth} />;
   }

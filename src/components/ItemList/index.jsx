@@ -11,6 +11,7 @@ class ItemList extends React.Component {
   state = {
     items: [],
     isOpenModal: false,
+    numberOfItems: 4,
     newWord: {
       vocabulary: "",
       pronunciation: "",
@@ -25,6 +26,15 @@ class ItemList extends React.Component {
       const items = res.sort((a, b) => b.date - a.date);
       this.setState({ items });
     });
+    document.addEventListener("scroll", this.onScroll);
+  };
+
+  onScroll = () => {
+    const scrollTop = document.documentElement.scrollTop;
+    if (document.body.scrollHeight === scrollTop + window.innerHeight) {
+      const numberOfItems = this.state.numberOfItems + 2;
+      this.setState({ numberOfItems });
+    }
   };
 
   getItems = async () => {
@@ -76,13 +86,19 @@ class ItemList extends React.Component {
     incrementClaps(data, item._id);
   };
 
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.onScroll);
+  }
+
   render() {
-    const { items, isOpenModal } = this.state;
+    const { items, isOpenModal, numberOfItems } = this.state;
+    const newItems = items.slice(0, numberOfItems);
     return (
       <React.Fragment>
         {items.length ? (
           <View
-            items={items}
+            items={newItems}
+            numberOfItems={numberOfItems}
             incrementClaps={this.incrementClaps}
             toggleModalItem={this.toggleModalItem}
           />
