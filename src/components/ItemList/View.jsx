@@ -7,7 +7,7 @@ const View = ({ items, toggleModalItem, incrementClaps }) => {
     <div className="item-list">
       {items.map((item, i) => (
         <Item
-          key={i}
+          key={item._id}
           {...item}
           toggleModalItem={e => toggleModalItem(item)}
           incrementClaps={e => incrementClaps(item)}

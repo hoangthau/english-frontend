@@ -31,7 +31,11 @@ class ItemList extends React.Component {
 
   onScroll = () => {
     const scrollTop = document.documentElement.scrollTop;
-    if (document.body.scrollHeight === scrollTop + window.innerHeight) {
+    const distance = 200;
+    if (
+      scrollTop + window.innerHeight + distance >=
+      document.body.scrollHeight
+    ) {
       const numberOfItems = this.state.numberOfItems + 2;
       this.setState({ numberOfItems });
     }
