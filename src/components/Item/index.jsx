@@ -32,7 +32,7 @@ const Item = ({
         title="Add to my words"
       >
         <span role="img" aria-label="item-icon">
-          ❤️
+          ⭐
         </span>
       </a>
       <h1>{title} </h1>
