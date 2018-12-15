@@ -24,7 +24,6 @@ const Nav = ({ auth }) => {
       <div>
         {isAuthenticated() ? (
           <React.Fragment>
-            <Link to="/create-item">Create Item</Link>
             <Link to="/my-words">My Words</Link>
           </React.Fragment>
         ) : (
