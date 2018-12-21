@@ -18,6 +18,8 @@ import NewItem from "./pages/NewItem";
 import Callback from "./pages/Callback";
 
 import Nav from "./components/Nav";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 const auth = new Auth();
 
@@ -42,6 +44,7 @@ function App() {
       <Router history={history}>
         <div>
           <Nav auth={auth} />
+          <Route path="/login" render={props => <Login auth={auth} />} />
           <Route
             path="/"
             exact
@@ -55,7 +58,7 @@ function App() {
             }}
           />
           <Route path="/create-item" component={NewItem} />
-          <Route path="/my-words" component={MyWord} />
+          <PrivateRoute path="/my-words" component={MyWord} auth={auth} />
         </div>
       </Router>
     </div>
