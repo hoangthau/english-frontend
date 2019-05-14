@@ -20,7 +20,7 @@ const View = ({
             <th>Words</th>
             <th>Pronunciation</th>
             <th>Meanings</th>
-            <th>Similar Sound</th>
+            <th>Example</th>
             <th>Image</th>
             <th>Action</th>
           </tr>
@@ -32,7 +32,7 @@ const View = ({
                 <td>{item.vocabulary}</td>
                 <td>{item.pronunciation}</td>
                 <td>{item.meanings}</td>
-                <td>{item.similarSound}</td>
+                <td>{item.example}</td>
                 <td>
                   <img
                     onClick={e => openModal(item.imageUrl)}

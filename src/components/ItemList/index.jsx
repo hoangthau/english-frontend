@@ -16,7 +16,7 @@ class ItemList extends React.Component {
       vocabulary: "",
       pronunciation: "",
       meanings: "",
-      similarSound: "",
+      example: "",
       imageUrl: "",
       username: ""
     }

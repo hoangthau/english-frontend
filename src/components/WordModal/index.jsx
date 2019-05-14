@@ -49,13 +49,13 @@ const WordModal = ({ isOpen, submit, toggleModal, changeInput, auth }) => {
             />
           </div>
           <div className="form-group">
-            <label>Similar Sound</label>
+            <label>Example</label>
             <input
-              name="similarSound"
+              name="example"
               type="text"
               className="form-control"
               onChange={changeInput}
-              placeholder="Enter word's similar sound"
+              placeholder="Enter the example related to your life"
             />
           </div>
           <button type="submit" className="btn btn-primary">
