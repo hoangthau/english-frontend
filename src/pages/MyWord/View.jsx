@@ -17,6 +17,7 @@ const View = ({
       <table className="table table-responsive">
         <thead>
           <tr>
+            <th>#</th>
             <th>Words</th>
             <th>Pronunciation</th>
             <th>Meanings</th>
@@ -26,9 +27,10 @@ const View = ({
           </tr>
         </thead>
         <tbody>
-          {words.map(item => {
+          {words.map((item, index) => {
             return (
               <tr key={item._id}>
+                <td>{index + 1}</td>
                 <td>{item.vocabulary}</td>
                 <td>{item.pronunciation}</td>
                 <td>{item.meanings}</td>

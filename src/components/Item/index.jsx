@@ -35,7 +35,7 @@ const Item = ({
           ⭐
         </span>
       </a>
-      <h1>{title} </h1>
+      <div className="item-title" dangerouslySetInnerHTML={{ __html: title }} />
       <img alt="item-img" src={imageUrl} />
       <span
         onClick={incrementClaps}

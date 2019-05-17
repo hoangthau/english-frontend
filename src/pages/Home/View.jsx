@@ -1,13 +1,10 @@
 import React, { Fragment } from "react";
 
 import ItemList from "../../components/ItemList";
-import SlideShow from "../../components/SlideShow";
 
-const View = ({ auth, leftImages, rightImages }) => {
+const View = ({ auth }) => {
   return (
     <Fragment>
-      <SlideShow images={leftImages} position="left" />
-      <SlideShow images={rightImages} position="right" />
       <ItemList auth={auth} />
     </Fragment>
   );
